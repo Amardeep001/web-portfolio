@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amardeep Singh - Full Stack Developer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: linear-gradient(135deg, #4a90e2, #d0021b); /* Gradient from blue to red */
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        header h1 {
+            margin: 0.5rem 0 0.5rem;
+            font-size: 2.5rem;
+            animation: slideInFromTop 1s ease-out;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .profile-picture {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 5px solid #fff;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin-top: 1rem; /* Added space above profile picture */
+        }
+        .profile-picture:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        section {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #444;
+            transition: background 0.3s ease-in-out;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        section:hover {
+            background: linear-gradient(135deg, #e8eaf6, #d0eaff); /* Light purple gradient */
+        }
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            z-index: -1;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.2;
+        }
+        section:hover::before {
+            opacity: 0.4;
+        }
+        h2 {
+            color: #444;
+            border-bottom: 3px solid #444;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info li {
+            margin: 0.5rem 0;
+        }
+        .contact-info a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .contact-info a:hover {
+            color: #4a90e2; /* Blue */
+            text-decoration: underline;
+        }
+        footer {
+            background: linear-gradient(135deg, #333, #555); /* Gradient from dark gray to medium gray */
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInFromTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .work-experience-item {
+            margin-bottom: 1.5rem;
+        }
+        .work-experience-item h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .work-experience-item p {
+            margin: 0.5rem 0;
+        }
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+        .skills-list li {
+            margin: 0.5rem 0;
+        }
+        .skills-list h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .projects-list {
+            list-style: none;
+            padding: 0;
+        }
+        .projects-list li {
+            margin: 0.5rem 0;
+        }
+        .projects-list h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .projects-list a {
+            color: #4a90e2; /* Blue */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .projects-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./profile.JPG" alt="Profile Picture of Amardeep Singh" class="profile-picture">
+        <h1>Amardeep Singh</h1>
+        <p>Full Stack Developer</p>
+    </header>
+    <main>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>Hi, I am Amardeep Singh, a Full Stack Developer with more than 3 years of experience in a wide range of technologies including React, Node, Express, MongoDB, PostgreSQL, Tailwind, Next.js, Material UI, Docker, Kubernetes, AWS, Redis, and Kafka. I am passionate about building efficient, scalable, and user-friendly applications.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div>
+                <h3>Technical Skills</h3>
+                <ul class="skills-list">
+                    <li>C, Python, Java, Git, Jira, Gitlab, AWS, Docker, Kubernetes, S3, Jenkins</li>
+                </ul>
+                <h3>Development Skills</h3>
+                <ul class="skills-list">
+                    <li>HTML, CSS, JavaScript, TypeScript, NodeJs, MongoDb</li>
+                </ul>
+                <h3>Libraries and Frameworks</h3>
+                <ul class="skills-list">
+                    <li>Express Js, Feathers Js, ReactJs, Angular, Redux, Next Js, Jest</li>
+                </ul>
+            </div>
+        </section>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="work-experience-item">
+                <h3>Full Stack Developer</h3>
+                <p><strong>KPMG India (kpmg)</strong>, Noida, India</p>
+                <p><strong>Jun 2024 - Current</strong></p>
+                <ul>
+                    <li>Built Chatbot web app for Bihar Administrative department.</li>
+                    <li>Integrated Gupshup Whatsapp business app for chat with world heritage bot.</li>
+                </ul>
+            </div>
+            <div class="work-experience-item">
+                <h3>MERN Stack Developer</h3>
+                <p><strong>Shadowcast IO India Private Limited (shadowcast)</strong>, Noida, India</p>
+                <p><strong>Dec 2022 - Jun 2024</strong></p>
+                <ul>
+                    <li>Built Admin and Creator Dashboard using ReactJs & NextJs with Stripe payment gateway.</li>
+                    <li>Led 2 junior developers and generated a 90% coverage report using Jest & Codacy (code quality analysis tool).</li>
+                    <li>Achieved 25% increase in web performance using lazy loading, code splitting, and code optimization strategies.</li>
+                </ul>
+            </div>
+            <div class="work-experience-item">
+                <h3>Software Developer</h3>
+                <p><strong>InnovationM (innovationm)</strong>, Noida, India</p>
+                <p><strong>Feb 2022 - Nov 2022</strong></p>
+                <ul>
+                    <li>Designed Responsive UI for client Homelane using agile methodologies, ensuring seamless user experiences.</li>
+                    <li>Built 10+ APIs utilizing NodeJS, ExpressJS, and PHP, integrated with MongoDB and MySQL databases.</li>
+                    <li>Resolved 40+ raised tickets on Jira within deadlines.</li>
+                </ul>
+            </div>
+            <div class="work-experience-item">
+                <h3>Backend Developer</h3>
+                <p><strong>Edneed Technology Private Limited (edneed)</strong>, Noida, India</p>
+                <p><strong>Jan 2021 - Feb 2022</strong></p>
+                <ul>
+                    <li>Implemented major 5 features such as Online Test, Assignment, Classes, Courses, and Notification systems.</li>
+                    <li>Developed more than 10 Microservices using NodeJs, ExpressJs, TypeScript, RabbitMQ, and implemented reseller club domain integration.</li>
+                    <li>Achieved 20% faster query results using MongoDB aggregation and Redis cache.</li>
+                    <li>Implemented real-time communication using Firebase and Socket.io.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul class="projects-list">
+                <li>
+                    <h3>Fourthstar</h3>
+                    <p>Virtual Reality project for experiencing real-life events in Oculus (VR) like entertainment, events, gaming, concerts. Worked on creator, admin portal to upload data to VR for more than 1000 users. <a target="_blank" href="https://www.fourthstar.com/">(Try it here)</a></p>
+                </li>
+                <li>
+                    <h3>Magic Mirror</h3>
+                    <p>Mirror that tracks and senses our body movements while doing exercises running in the mirror desktop app. Built desktop app using ElectronJs for 100+ clients. <a target="_blank" href="https://magic.fit/">(Try it here)</a></p>
+                </li>
+                <li>
+                    <h3>Edneed</h3>
+                    <p>Edtech platform for educators, learners, and institutes also includes community, LMS, website builder. Over 10000 users have used it so far. <a target="_blank" href="https://edneed.com/">(Try it here)</a></p>
+                </li>
+                <li>
+                    <h3>Web Chat App</h3>
+                    <p>Real-time web chat app using Node.js and Socket.io. More than 2 users can chat one-to-one through this chat app.</p>
+                </li>
+            </ul>
+        </section>
+        <section id="education">
+            <h2>Education</h2>
+            <div>
+                <h3>B.Tech (Computer Science and Engineering)</h3>
+                <p>IIIT Naya Raipur</p>
+                <p><strong>2017 - 2021</strong></p>
+                <p>Grade: 8.2 CGPA</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <ul class="contact-info">
+                <li>Email: <a href="mailto:myamardeepsingh001@gmail.com">myamardeepsingh001@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/amardeep-singh-1a0ab9179/" target="_blank">https://www.linkedin.com/in/amardeep-singh-1a0ab9179/</a></li>
+                <li>GitHub: <a href="https://github.com/Amardeep001/" target="_blank">https://github.com/Amardeep001/</a></li>
+                <li>Phone: +91-9340898106</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Amardeep Singh. All rights reserved.</p>
+    </footer>
+</body>
+</html>
